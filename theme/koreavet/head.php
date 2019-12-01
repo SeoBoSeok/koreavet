@@ -28,7 +28,7 @@ include_once G5_THEME_PATH . '/head.sub.php';
             <!--Logo-->
             <div id="logo">
               <a
-                href="index.html"
+                href="/"
                 class="logo"
                 data-src-dark="images/logo-dark.png"
               >
@@ -199,7 +199,7 @@ foreach ($menu_datas as $k => $v) {
 <?php
 }
 ?>
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="/">Home</a></li>
                     <li class="dropdown">
                       <a href="#">Layout</a>
                       <ul class="dropdown-menu">
