@@ -5,15 +5,15 @@ if (!defined('_GNUBOARD_')) {
 // 개별 페이지 접근 불가
 include_once G5_LIB_PATH . '/thumbnail.lib.php';
 
+$releases_data = @simplexml_load_file('https://rss.blog.naver.com/kamcsince1988') or die("Error: Cannot create object");
 // add_stylesheet('css 구문', 출력순서); 숫자가 작을 수록 먼저 출력됨
 // add_stylesheet('<link rel="stylesheet" href="' . $board_skin_url . '/style.css">', 0);
 ?>
 
-
 <!-- 게시판 목록 시작 { -->
 
 <!-- Page title -->
-        <section id="page-title">
+        <section id="page-title" style="background-image:url(../../../../../../../js/polo/images/portfolio/project/1.jpg);">
             <div class="container">
                 <div class="page-title">
                     <h1>Sidebar</h1>
@@ -43,6 +43,26 @@ include_once G5_LIB_PATH . '/thumbnail.lib.php';
 <!-- Portfolio -->
                 <div id="portfolio" class="grid-layout portfolio-3-columns" data-margin="20">
 
+                <?php foreach ($releases_data->channel->item as $value) {?>
+                    <!-- portfolio item -->
+                    <div class="portfolio-item no-overlay ct-photography ct-media ct-branding ct-Media ct-webdesign">
+                        <div class="portfolio-item-wrap">
+                            <div class="portfolio-slider">
+                                <div class="carousel dots-inside dots-dark arrows-dark" data-items="1" data-loop="true" data-autoplay="true" data-animate-in="fadeIn" data-animate-out="fadeOut" data-autoplay-timeout="1500">
+                                    <a href="<?php echo $value->link; ?>"><img src="images/portfolio/64.jpg" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="portfolio-description">
+                                <a href="portfolio-page-grid-gallery.html">
+                                    <h3><?php echo $value->title; ?></h3>
+                                    <span><?php echo date("Y-m-d", strtotime($value->pubDate)); ?></span>
+                                    <p><?php echo mb_strimwidth($value->description, 0, 100, '...', 'utf-8'); ?></p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                <?php }?>
+
                     <!-- portfolio item -->
                     <div class="portfolio-item no-overlay ct-photography ct-media ct-branding ct-Media ct-webdesign">
                         <div class="portfolio-item-wrap">
@@ -55,142 +75,8 @@ include_once G5_LIB_PATH . '/thumbnail.lib.php';
                             <div class="portfolio-description">
                                 <a href="portfolio-page-grid-gallery.html">
                                     <h3>Towel World</h3>
-                                    <span>Graphics</span>                                     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod.</p>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end: portfolio item -->
-
-                    <!-- portfolio item -->
-                    <div class="portfolio-item no-overlay img-zoom ct-photography ct-marketing ct-media">
-                        <div class="portfolio-item-wrap">
-                            <div class="portfolio-image">
-                                <a href="#"><img src="images/portfolio/60.jpg" alt=""></a>
-                            </div>
-                            <div class="portfolio-description">
-                                <a href="portfolio-page-grid-gallery.html">
-                                    <h3>Paper Pouch</h3>
-                                    <span>Artwork / Branding</span>                                     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod.</p>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end: portfolio item -->
-
-
-                    <!-- portfolio item -->
-                    <div class="portfolio-item no-overlay img-zoom ct-photography ct-media ct-branding ct-Media">
-                        <div class="portfolio-item-wrap">
-                            <div class="portfolio-image">
-                                <a href="#"><img src="images/portfolio/61.jpg" alt=""></a>
-                            </div>
-                            <div class="portfolio-description">
-                                <a href="portfolio-page-grid-gallery.html">
-                                    <h3>Let's Go Outside</h3>
-                                    <span>Illustrations / Graphics</span>                                     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod.</p>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end: portfolio item -->
-
-                    <!-- portfolio item -->
-                    <div class="portfolio-item no-overlay img-zoom ct-photography ct-media ct-branding ct-marketing ct-webdesign">
-                        <div class="portfolio-item-wrap">
-                            <div class="portfolio-image">
-                                <a href="#"><img src="images/portfolio/65.jpg" alt=""></a>
-                            </div>
-                            <div class="portfolio-description">
-                                <a href="portfolio-page-grid-gallery.html">
-                                    <h3>Towel World</h3>
-                                    <span>Graphics</span>                                     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod.</p>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end: portfolio item -->
-
-                    <!-- portfolio item -->
-                    <div class="portfolio-item no-overlay img-zoom ct-marketing ct-media ct-branding ct-marketing ct-webdesign">
-                        <div class="portfolio-item-wrap">
-                            <div class="portfolio-image">
-                                <a href="#"><img src="images/portfolio/66.jpg" alt=""></a>
-                            </div>
-                            <div class="portfolio-description">
-                                <a href="portfolio-page-grid-gallery.html">
-                                    <h3>Last Iceland Sunshine</h3>
-                                    <span>Graphics</span>                                     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod.</p>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end: portfolio item -->
-
-
-                    <!-- portfolio item -->
-                    <div class="portfolio-item no-overlay img-zoom ct-photography ct-media ct-branding ct-marketing ct-webdesign">
-                        <div class="portfolio-item-wrap">
-                            <div class="portfolio-image">
-                                <a href="#"><img src="images/portfolio/67.jpg" alt=""></a>
-                            </div>
-                            <div class="portfolio-description">
-                                <a href="portfolio-page-grid-gallery.html">
-                                    <h3>Towel World</h3>
-                                    <span>Graphics</span>                                     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod.</p>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end: portfolio item -->
-
-
-                    <!-- portfolio item -->
-                    <div class="portfolio-item no-overlay ct-photography ct-media ct-branding ct-Media ct-marketing ct-webdesign">
-                        <div class="portfolio-item-wrap">
-                            <div class="portfolio-slider">
-                                <div class="carousel dots-inside dots-dark arrows-dark" data-items="1" data-loop="true" data-autoplay="true" data-animate-in="fadeIn" data-animate-out="fadeOut" data-autoplay-timeout="1500">
-                                    <a href="#"><img src="images/portfolio/68.jpg" alt=""></a>
-                                    <a href="#"><img src="images/portfolio/71.jpg" alt=""></a>
-                                </div>
-                            </div>
-                                                       <div class="portfolio-description">
-                                <a href="portfolio-page-grid-gallery.html">
-                                    <h3>Towel World</h3>
-                                    <span>Graphics</span>                                     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod.</p>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end: portfolio item -->
-
-
-                    <!-- portfolio item -->
-                    <div class="portfolio-item no-overlay img-zoom ct-photography ct-marketing ct-media">
-                        <div class="portfolio-item-wrap">
-                            <div class="portfolio-image">
-                                <a href="#"><img src="images/portfolio/69.jpg" alt=""></a>
-                            </div>
-                            <div class="portfolio-description">
-                                <a href="portfolio-page-grid-gallery.html">
-                                    <h3>Luxury Wine</h3>
-                                    <span>Graphics / Branding</span>                                     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod.</p>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end: portfolio item -->
-
-                    <!-- portfolio item -->
-                    <div class="portfolio-item no-overlay img-zoom ct-marketing ct-media ct-branding ct-marketing ct-webdesign">
-                        <div class="portfolio-item-wrap">
-                            <div class="portfolio-image">
-                                <a href="#"><img src="images/portfolio/70.jpg" alt=""></a>
-                            </div>
-                            <div class="portfolio-description">
-                                <a href="portfolio-page-grid-gallery.html">
-                                    <h3>Last Iceland Sunshine</h3>
-                                    <span>Graphics</span>                                     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod.</p>
+                                    <span>Graphics</span>
+                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod.</p>
                                 </a>
                             </div>
                         </div>
@@ -366,6 +252,10 @@ include_once G5_LIB_PATH . '/thumbnail.lib.php';
                         </div>
                         <!--end: widget tags -->
 
+                        <div class="widget" style="text-align:center;">
+                            <!-- <iframe id='widget_post_frame' name='widget_post_frame' src='https://editor.post.naver.com/widget/external.nhn?encryptedId=VwXcRUNncBUM3kBZCdmTyw%3D%3D' scrolling='no' frameborder='0' allowtransparency='true' style='width:171px;height:281px'></iframe> -->
+                            <iframe id="widget_post_frame" name="widget_post_frame" src="https://widget.post.naver.com/blog2.nhn?blogId=kamcsince1988" scrolling="no" frameborder="0" allowtransparency="true" style="width:200px;height:300px"></iframe>
+                        </div>
 
                     </div>
                     <!-- end: sidebar-->

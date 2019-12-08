@@ -49,11 +49,11 @@ define('G5_DBCONFIG_FILE', 'dbconfig.php');
 
 define('G5_ADMIN_DIR', 'adm');
 define('G5_BBS_DIR', 'bbs');
-define('G5_CSS_DIR', 'css');
+define('G5_CSS_DIR', 'kcss');
 define('G5_DATA_DIR', 'data');
 define('G5_EXTEND_DIR', 'extend');
 define('G5_IMG_DIR', 'img');
-define('G5_JS_DIR', 'js');
+define('G5_JS_DIR', 'kjs');
 define('G5_LIB_DIR', 'lib');
 define('G5_PLUGIN_DIR', 'plugin');
 define('G5_SKIN_DIR', 'skin');
@@ -82,7 +82,6 @@ if (G5_DOMAIN) {
     } else {
         define('G5_URL', '');
     }
-
 }
 
 if (isset($g5_path['path'])) {
